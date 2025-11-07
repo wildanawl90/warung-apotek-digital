@@ -184,10 +184,12 @@ export type Database = {
       }
       products: {
         Row: {
+          barcode: string | null
           category_id: string | null
           created_at: string | null
           description: string | null
           dosage: string | null
+          expiry_date: string | null
           id: string
           image_url: string | null
           is_popular: boolean | null
@@ -195,13 +197,16 @@ export type Database = {
           price: number
           slug: string
           stock: number
+          stock_entry_date: string | null
           updated_at: string | null
         }
         Insert: {
+          barcode?: string | null
           category_id?: string | null
           created_at?: string | null
           description?: string | null
           dosage?: string | null
+          expiry_date?: string | null
           id?: string
           image_url?: string | null
           is_popular?: boolean | null
@@ -209,13 +214,16 @@ export type Database = {
           price: number
           slug: string
           stock?: number
+          stock_entry_date?: string | null
           updated_at?: string | null
         }
         Update: {
+          barcode?: string | null
           category_id?: string | null
           created_at?: string | null
           description?: string | null
           dosage?: string | null
+          expiry_date?: string | null
           id?: string
           image_url?: string | null
           is_popular?: boolean | null
@@ -223,6 +231,7 @@ export type Database = {
           price?: number
           slug?: string
           stock?: number
+          stock_entry_date?: string | null
           updated_at?: string | null
         }
         Relationships: [
@@ -258,6 +267,36 @@ export type Database = {
           full_name?: string | null
           id?: string
           phone?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      sales_reports: {
+        Row: {
+          created_at: string | null
+          id: string
+          report_date: string
+          total_items_sold: number | null
+          total_orders: number | null
+          total_revenue: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          report_date: string
+          total_items_sold?: number | null
+          total_orders?: number | null
+          total_revenue?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          report_date?: string
+          total_items_sold?: number | null
+          total_orders?: number | null
+          total_revenue?: number | null
           updated_at?: string | null
         }
         Relationships: []
